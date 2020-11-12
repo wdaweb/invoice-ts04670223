@@ -1,4 +1,4 @@
-<h3 class="text-center">統一發票紀錄與對獎</h3>
+<h1 class="text-center">統一發票紀錄與對獎</h1>
 
 <div class="container">
   <div class="row">
@@ -14,7 +14,7 @@
       ];
       $m = ceil(date("m") / 2);
       ?>
-      <div class="text-center"><?= $month[$m]; ?></div>
+      <h2><?= $month[$m]; ?></h2>
       <div class="text-center ">
         <a href="" class="btn btn-outline-warning">當期發票</a>
       </div>

@@ -2,8 +2,7 @@
 //撰寫新增消費發票的程式碼
 //將發票的號碼及相關資訊寫入資料庫
 
-$dsn="mysql:host=localhost;dbname=invoice;charset=utf8";
-$pdo=new PDO($dsn,'root','');
+include_once "../base.php";
 // foreach($_POST as $key => $value){
 //   $tmp[]=$key;
 // }
