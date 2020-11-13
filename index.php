@@ -30,7 +30,7 @@
                 <a href="?do=invoice_list" class="btn btn-outline-warning">當期發票</a>
             </div>
             <div class="text-center">
-                <a href="" class="btn btn-outline-warning">對獎</a>
+                <a href="?do=award_numbers" class="btn btn-outline-warning">對獎</a>
             </div>
             <div class="text-center">
                 <a href="?do=add_awards" class="btn btn-outline-warning">輸入獎號</a>
