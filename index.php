@@ -10,15 +10,47 @@
 </head>
 
 <body>
-<?php
-if (isset($_GET['do'])) {
-    $file=$_GET['do'].".php";
-    include $file;
+    <h1 class="text-center">統一發票紀錄與對獎</h1>
 
-}else{
-include "main.php";
-}
-?>
+    <div class="container">
+        <div class="col-8 d-flex justify-content-between p-3 mx-auto border">
+            <?php
+            $month = [
+                1 => "1,2月",
+                2 => "3,4月",
+                3 => "5,6月",
+                4 => "7,8月",
+                5 => "9,10月",
+                6 => "11,12月",
+            ];
+            $m = ceil(date("m") / 2);
+            ?>
+            <h2><?= $month[$m]; ?></h2>
+            <div class="text-center ">
+                <a href="?do=invoice_list" class="btn btn-outline-warning">當期發票</a>
+            </div>
+            <div class="text-center">
+                <a href="" class="btn btn-outline-warning">對獎</a>
+            </div>
+            <div class="text-center">
+                <a href="" class="btn btn-outline-warning">輸入獎號</a>
+            </div>
+            <div class="text-center">
+                <a href="index.php" class="btn btn-outline-warning">回首頁</a>
+            </div>
+        </div>
+
+        <div class="col-8 d-flex p-3 mx-auto border justyfy-content-center">
+            <?php
+            if (isset($_GET['do'])) {
+                $file = $_GET['do'] . ".php";
+                include $file;
+            } else {
+                include "main.php";
+            }
+            ?>
+        </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
