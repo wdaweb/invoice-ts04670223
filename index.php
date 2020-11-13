@@ -25,7 +25,7 @@
             ];
             $m = ceil(date("m") / 2);
             ?>
-            <h2><?= $month[$m]; ?></h2>
+            <h3><?= $month[$m]; ?></h3>
             <div class="text-center ">
                 <a href="?do=invoice_list" class="btn btn-outline-warning">當期發票</a>
             </div>
@@ -33,7 +33,7 @@
                 <a href="" class="btn btn-outline-warning">對獎</a>
             </div>
             <div class="text-center">
-                <a href="" class="btn btn-outline-warning">輸入獎號</a>
+                <a href="?do=add_awards" class="btn btn-outline-warning">輸入獎號</a>
             </div>
             <div class="text-center">
                 <a href="index.php" class="btn btn-outline-warning">回首頁</a>

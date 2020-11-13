@@ -9,18 +9,16 @@ if(isset($_GET['del'])){
   $inv=$pdo->query("select * from invoices where id='{$_GET['id']}'")->fetch();
 ?>
 
-<div class="col-md-6 text-center ">
-  <div class="text-center">確認要刪除以下發票資料嗎?</div>
+<div class="col-md-6 mx-auto ">
+  <div class="text-center mb-2">確認要刪除以下發票資料嗎?</div>
   <ul class="list-group">
-    <li class="list-group-item"><?=$inv['code'].$inv['number'];?></li>
-    <li class="list-group-item"><?=$inv['date'];?></li>
-    <li class="list-group-item"><?=$inv['payment'];?></li>
+    <li class="list-group-item text-center"><?=$inv['code'].$inv['number'];?></li>
+    <li class="list-group-item text-center"><?=$inv['date'];?></li>
+    <li class="list-group-item text-center"><?=$inv['payment'];?></li>
   </ul>
-  <div class="text-center">
-    <button>
-      <a href="?do=del_invoice&del=1&id=<?=$_GET['id'];?>">確認</a>
-    </button>
-    <button><a href="?do=invoice_list">取消</a></button>
+  <div class="text-center mt-2">
+      <a class="btn btn-outline-danger" href="?do=del_invoice&del=1&id=<?=$_GET['id'];?>">確認</a>
+    <a class="btn btn-outline-dark" href="?do=invoice_list">取消</a>
     </div>
     </div>
 <?php
