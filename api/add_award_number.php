@@ -1,5 +1,6 @@
 <?php
 
+
 //撰寫建立各期中獎號碼的程式
 //將表單傳送過來的中獎號碼寫入資料庫
 include_once "../base.php";
@@ -53,6 +54,6 @@ values('$year','$period','$six','4')";
 }
 
 echo "新增完成";
-header("location:../index.php?do=award_numbers");
+header("location:../index.php?do=award_numbers&pd=".$year."-".$period);
 ?>
 ?>

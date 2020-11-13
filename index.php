@@ -7,13 +7,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>統一發票紀錄及對獎系統</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400&display=swap');
+        * {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        .number {
+            font-size: 1.2rem;
+            color: red;
+            font-weight: bolder;
+        }
+    </style>
 </head>
 
 <body>
-    <h1 class="text-center">統一發票紀錄與對獎</h1>
-
+    <a href="index.php" style="text-decoration:none;">
+        <h1 class="text-center text-dark">統一發票紀錄與對獎</h1>
+    </a>
     <div class="container">
-        <div class="col-8 d-flex justify-content-between p-3 mx-auto border">
+        <div class="col-10 d-flex justify-content-between p-3 mx-auto border">
             <?php
             $month = [
                 1 => "1,2月",
@@ -40,7 +53,7 @@
             </div>
         </div>
 
-        <div class="col-8 d-flex p-3 mx-auto border justyfy-content-center">
+        <div class="col-10 d-flex p-3 mx-auto border justyfy-content-center">
             <?php
             if (isset($_GET['do'])) {
                 $file = $_GET['do'] . ".php";
