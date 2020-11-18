@@ -10,6 +10,7 @@ $rows = $pdo->query($sql)->fetchAll();
 // }
 
 ?>
+
 <table class="table text-center">
     <thead>
         <tr>
@@ -28,8 +29,9 @@ $rows = $pdo->query($sql)->fetchAll();
                 <td><?= $row['date']; ?></td>
                 <td><?= $row['payment']; ?></td>
                 <td>
-                    <a href="?do=edit_invoice&id=<?=$row['id'];?>"><button class="btn btn-dark">編輯</button></a>
-                    <a href="?do=del_invoice&id=<?=$row['id'];?>"><button class="btn btn-danger">刪除</button></a>
+                    <a href="?do=edit_invoice&id=<?=$row['id'];?>"><button class="btn btn-outline-dark">編輯</button></a>
+                    <a href="?do=del_invoice&id=<?=$row['id'];?>"><button class="btn btn-outline-danger">刪除</button></a>
+                    <a href="?do=award&id=<?=$row['id'];?>"><button class="btn btn-outline-warning">對獎</button></a>
                 </td>
             </tr>
         </tbody>

@@ -18,6 +18,9 @@
             color: red;
             font-weight: bolder;
         }
+        body{
+            background-color: rgba(251, 251, 251, 1);
+        }
     </style>
 </head>
 

@@ -69,9 +69,9 @@
         <tr>
           <th id="addSixprize">增開六獎</th>
           <td headers="group9" class="number">
-            <input class="form-control col-3 d-inline" type="number" name="add_six_prize[]" min="001" max="999">
-            <input class="form-control col-3 d-inline" type="number" name="add_six_prize[]" min="001" max="999">
-            <input class="form-control col-3 d-inline" type="number" name="add_six_prize[]" min="001" max="999">
+            <input class="form-control col-3 d-inline" type="number" name="add_six_prize[]" min="000" max="999">
+            <input class="form-control col-3 d-inline" type="number" name="add_six_prize[]" min="000" max="999">
+            <input class="form-control col-3 d-inline" type="number" name="add_six_prize[]" min="000" max="999">
           </td>
         </tr>
       </tbody>
