@@ -3,6 +3,7 @@
     <div class="form-group col-md-6">
       <label>日期:</label>
       <input class="form-control" type="date" name="date">
+      <?php errFeedBack('date');?>
     </div>
     <div class="form-group col-md-6">
       <label>期別:</label>
@@ -19,7 +20,9 @@
       <label>發票號碼:</label>
       <div class="form-row">
         <div class="col-3">
+
           <input class="form-control" type="text" name="code">
+          <?php errFeedBack('number');?>
         </div>
         <div class="col-9">
           <input class="form-control" type="number" name="number">
@@ -29,6 +32,7 @@
     <div class="form-group col-md-12">
       <label>發票金額:</label>
       <input class="form-control" type="number" name="payment">
+      <?php errFeedBack('payment');?>
     </div>
     <div class="mx-auto">
       <input class="btn btn-outline-dark" type="submit" value="送出">
