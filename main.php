@@ -8,12 +8,12 @@
     <div class="form-group col-md-6">
       <label>期別:</label>
       <select name="period" id="" class="form-control">
-        <option value="1">1~2</option>
-        <option value="2">3~4</option>
-        <option value="3">5~6</option>
-        <option value="4">7~8</option>
-        <option value="5">9~10</option>
-        <option value="6">11~12</option>
+        <option value="1">1~2月</option>
+        <option value="2">3~4月</option>
+        <option value="3">5~6月</option>
+        <option value="4">7~8月</option>
+        <option value="5">9~10月</option>
+        <option value="6">11~12月</option>
       </select>
     </div>
     <div class="form-group col">
