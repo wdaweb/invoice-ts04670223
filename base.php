@@ -32,7 +32,7 @@ function errFeedBack($field)
 {
   if (!empty($_SESSION['err'][$field])) {
     foreach ($_SESSION['err'][$field] as $err) {
-      echo "<div style='font-size:16px; color:pink;'>";
+      echo "<div style='font-size:16px; color:#F53563;'>";
       echo $err;
       echo "</div>";
     }

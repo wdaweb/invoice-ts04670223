@@ -76,7 +76,7 @@ function del($table,$id){
 // echo "<hr>";
 // print_r(all('invoices',));
 // echo "<hr>";
-print_r(all('invoices',['code'=>"GD",'period'=>6]));
+// print_r(all('invoices',['code'=>"GD",'period'=>6]));
 // echo "<hr>";
 // print_r(all('invoices',['code'=>"AB",'period'=>1],"order by date desc");
 // echo "<hr>";
