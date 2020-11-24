@@ -16,7 +16,10 @@ $_SESSION['err']=[];
 echo "<pre>";
 print_r(array_keys($_POST));
 echo "</pre>";
+accept('code','發票的欄位為必填');
+length('code',2,2,'長度需為2位數');
 accept('number','發票的欄位為必填');
+length('number',8,8,'長度需為8位數');
 accept('payment','發票金額的欄位為必填');
 accept('date','日期的欄位為必填');
 echo "<br>";
@@ -26,6 +29,7 @@ echo "<br>";
 $sql="insert into invoices (`".implode("`,`",array_keys($_POST))."`)values('".implode("','",$_POST)."')";
 echo $sql;
 echo "新增完成";
+
 
 if(empty($_SESSION['err'])){
   $pdo->exec($sql);

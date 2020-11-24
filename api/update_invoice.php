@@ -9,6 +9,10 @@ set
 `payment`='{$_POST['payment']}' 
 where 
 `id`='{$_POST['id']}'";
+accept('code','發票的欄位為必填');
+length('code',2,2,'長度需為2位數');
+accept('number','發票的欄位為必填');
+length('number',8,8,'長度需為8位數');
 $pdo->exec($sql);
 // echo "<pre>";
 // print_r($_POST);

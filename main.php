@@ -22,10 +22,11 @@
         <div class="col-3">
 
           <input class="form-control" type="text" name="code">
-          <?php errFeedBack('number');?>
+          <?php errFeedBack('code');?>
         </div>
         <div class="col-9">
           <input class="form-control" type="number" name="number">
+          <?php errFeedBack('number');?>
         </div>
       </div>
     </div>
