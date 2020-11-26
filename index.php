@@ -15,10 +15,10 @@ include_once "base.php";
 </head>
 
 <body>
+    <div class="container">
     <a href="index.php" style="text-decoration:none;">
         <h1 class="text-center text-dark">統一發票紀錄與對獎</h1>
     </a>
-    <div class="container">
         <div class="col-10 d-flex justify-content-between p-3 mx-auto border">
             <?php
             $month = [
@@ -33,20 +33,20 @@ include_once "base.php";
             ?>
             <h3><?= $month[$m]; ?></h3>
             <div class="text-center ">
-                <a href="?do=invoice_list" class="btn btn-outline-warning">當期發票</a>
+                <a href="?do=invoice_list" class="btn btn btn-outline-dark">當期發票</a>
             </div>
             <div class="text-center">
-                <a href="?do=award_numbers" class="btn btn-outline-warning">對獎</a>
+                <a href="?do=award_numbers" class="btn btn btn-outline-dark">對獎</a>
             </div>
             <div class="text-center">
-                <a href="?do=add_awards" class="btn btn-outline-warning">輸入開獎獎號</a>
+                <a href="?do=add_awards" class="btn btn btn-outline-dark">輸入開獎獎號</a>
             </div>
             <div class="text-center">
-                <a href="index.php" class="btn btn-outline-warning">回首頁</a>
+                <a href="index.php" class="btn btn btn-outline-dark">回首頁</a>
             </div>
         </div>
 
-        <div class="col-10 d-flex p-0 mx-auto border justyfy-content-center">
+        <div class="col-10 d-flex p-2 mx-auto border justyfy-content-center ">
             <?php
             if (isset($_GET['do'])) {
                 $file = $_GET['do'] . ".php";

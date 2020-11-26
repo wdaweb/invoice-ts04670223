@@ -1,4 +1,4 @@
-<form class="mx-auto" action="api/add_invoice.php" method="post">
+<form class="mx-auto p-2" action="api/add_invoice.php" method="post">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label>日期:</label>

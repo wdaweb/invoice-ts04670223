@@ -26,8 +26,9 @@ echo "<br>";
 // echo "inserts into invoices (`".implode("`,`",array_keys($_POST))."`)";
 // echo "values('".implode("','",$_POST)."')";
 
-$sql="insert into invoices (`".implode("`,`",array_keys($_POST))."`)values('".implode("','",$_POST)."')";
-echo $sql;
+save('invoices',$_POST);
+// $sql="insert into invoices (`".implode("`,`",array_keys($_POST))."`)values('".implode("','",$_POST)."')";
+// echo $sql;
 echo "新增完成";
 
 

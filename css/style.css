@@ -18,19 +18,9 @@
 }
 
 body {
-    background:linear-gradient( 45deg,#F4DBB3, #F5B895);
+  width: 100vw;
+  height: 100vh;
 }
-.container>div>div.row{
-  /* background:#0F4C81 ; */
-}
-thead{
-  background: #F5B895;
-
-}
-tbody{
-  color:  #F4DBB3;
-
-}
-h1{
-  font-weight:900;
-}
+/* .container>div>div.row{
+  background:#0F4C81 ;
+} */

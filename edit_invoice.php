@@ -7,7 +7,7 @@ $inv = $pdo->query($sql)->fetch();
 // print_r($inv);
 // echo "</pre>";
 ?>
-<form class="mx-auto" action="api/update_invoice.php" method="post">
+<form class="mx-auto p-3" action="api/update_invoice.php" method="post">
   <div class="form-row">
     <input type="hidden" name="id" value="<?= $inv['id']; ?>">
     <div class="form-row">
