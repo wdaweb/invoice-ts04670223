@@ -1,0 +1,36 @@
+.color{
+  color: #0F4C81;
+  color:#B6CADA;
+  color: #F5B895;
+  color: #F4DBB3;
+
+}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400&display=swap');
+
+* {
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.number {
+    font-size: 1.2rem;
+    color: red;
+    font-weight: bolder;
+}
+
+body {
+    background:linear-gradient( 45deg,#F4DBB3, #F5B895);
+}
+.container>div>div.row{
+  /* background:#0F4C81 ; */
+}
+thead{
+  background: #F5B895;
+
+}
+tbody{
+  color:  #F4DBB3;
+
+}
+h1{
+  font-weight:900;
+}

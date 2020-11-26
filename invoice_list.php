@@ -25,12 +25,12 @@ $rows = $pdo->query($sql)->fetchAll();
 ?>
 <div class="row justify-content-center mx-auto">
     <div class="btn-group mb-2 ">
-        <a class="btn btn-secondary" href="?do=invoice_list&pd=1">1~2月</a>
-        <a class="btn btn-secondary" href="?do=invoice_list&pd=2">3~4月</a>
-        <a class="btn btn-secondary" href="?do=invoice_list&pd=3">5~6月</a>
-        <a class="btn btn-secondary" href="?do=invoice_list&pd=4">7~8月</a>
-        <a class="btn btn-secondary" href="?do=invoice_list&pd=5">9~10月</a>
-        <a class="btn btn-secondary" href="?do=invoice_list&pd=6">11~12月</a>
+        <a class="btn btn-secondary mt-2" href="?do=invoice_list&pd=1">1~2月</a>
+        <a class="btn btn-secondary mt-2" href="?do=invoice_list&pd=2">3~4月</a>
+        <a class="btn btn-secondary mt-2" href="?do=invoice_list&pd=3">5~6月</a>
+        <a class="btn btn-secondary mt-2" href="?do=invoice_list&pd=4">7~8月</a>
+        <a class="btn btn-secondary mt-2" href="?do=invoice_list&pd=5">9~10月</a>
+        <a class="btn btn-secondary mt-2" href="?do=invoice_list&pd=6">11~12月</a>
     </div>
     <table class="table text-center">
         <thead>

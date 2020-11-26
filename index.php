@@ -11,23 +11,7 @@ include_once "base.php";
     <title>統一發票紀錄及對獎系統</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400&display=swap');
-
-        * {
-            font-family: 'Noto Sans TC', sans-serif;
-        }
-
-        .number {
-            font-size: 1.2rem;
-            color: red;
-            font-weight: bolder;
-        }
-
-        body {
-            background-color: rgba(251, 251, 251, 1);
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -62,7 +46,7 @@ include_once "base.php";
             </div>
         </div>
 
-        <div class="col-10 d-flex p-3 mx-auto border justyfy-content-center">
+        <div class="col-10 d-flex p-0 mx-auto border justyfy-content-center">
             <?php
             if (isset($_GET['do'])) {
                 $file = $_GET['do'] . ".php";
