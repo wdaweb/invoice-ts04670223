@@ -77,7 +77,7 @@
       </tbody>
     </table>
     <div class="text-center">
-      <input type="submit" value="儲存" class="btn btn-outline-danger">
-      <input type="reset" value="清空" class="btn btn-outline-dark">
+      <input style="font-weight:900;" type="submit" value="儲存" class="btn btn-outline-dark">
+      <input style="font-weight:900;" type="reset" value="清空" class="btn btn-outline-dark">
     </div>
   </form>

@@ -25,20 +25,20 @@ $rows = $pdo->query($sql)->fetchAll();
 ?>
 <div class="row justify-content-center mx-auto">
     <div class="btn-group mb-2 ">
-        <a class="btn btn-secondary " href="?do=invoice_list&pd=1">1~2月</a>
-        <a class="btn btn-secondary " href="?do=invoice_list&pd=2">3~4月</a>
-        <a class="btn btn-secondary " href="?do=invoice_list&pd=3">5~6月</a>
-        <a class="btn btn-secondary " href="?do=invoice_list&pd=4">7~8月</a>
-        <a class="btn btn-secondary " href="?do=invoice_list&pd=5">9~10月</a>
-        <a class="btn btn-secondary " href="?do=invoice_list&pd=6">11~12月</a>
+        <a style="font-weight:900;" class="btn btn-outline-dark " href="?do=invoice_list&pd=1">1~2月</a>
+        <a style="font-weight:900;" class="btn btn-outline-dark " href="?do=invoice_list&pd=2">3~4月</a>
+        <a style="font-weight:900;" class="btn btn-outline-dark " href="?do=invoice_list&pd=3">5~6月</a>
+        <a style="font-weight:900;" class="btn btn-outline-dark " href="?do=invoice_list&pd=4">7~8月</a>
+        <a style="font-weight:900;" class="btn btn-outline-dark " href="?do=invoice_list&pd=5">9~10月</a>
+        <a style="font-weight:900;" class="btn btn-outline-dark " href="?do=invoice_list&pd=6">11~12月</a>
     </div>
     <table class="table text-center">
         <thead>
             <tr>
-                <th>發票號碼</th>
-                <th>消費日期</th>
-                <th>消費金額</th>
-                <th>操作</th>
+                <th style="font-size: 1.2rem;">發票號碼</th>
+                <th style="font-size: 1.2rem;">消費日期</th>
+                <th style="font-size: 1.2rem;">消費金額</th>
+                <th style="font-size: 1.2rem;">操作</th>
             </tr>
         </thead>
         <?php
@@ -74,14 +74,24 @@ $rows = $pdo->query($sql)->fetchAll();
     </div>
 </div> -->
 
-<form action="index.php" method="get">
+<form class="d-flex" action="index.php" method="get">
     <input type="hidden" name="do" value="invoice_list">
     <input type="hidden" name="pd" value="<?= $period ?>">
-    <select name="i" onchange="submit()">
+    <a class="btn btn-light" href="?do=invoice_list&pd=<?=$period;?>&i=<?=$pageNow-1;?>"><i class="fas fa-angle-left"></i></a>
+    <select class="form-control" name="i" onchange="submit()">
         <?php
         for ($i = 1; $i <= $pageSum; $i++) {
             echo "<option value='$i'>" . $i . "</option>";
         }
         ?>
     </select>
+    <?php
+    $nextpage=$pageNow;
+    if ($pageNow>=$pageSum) {
+        $nextpage=$pageSum;
+    }else{
+        $nextpage=$pageNow+1;
+    }
+    ?>
+<a class="btn btn-light" href="?do=invoice_list&pd=<?=$period;?>&i=<?=$nextpage;?>"><i class="fas fa-angle-right"></i></a>
 </form>

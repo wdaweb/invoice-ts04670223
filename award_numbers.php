@@ -42,12 +42,12 @@ foreach ($awards as $aw) {
 ?>
 <div class="row justify-content-center mx-auto">
   <div class="btn-group mb-2" >
-    <a class="btn btn-secondary" href="?do=award_numbers&pd=<?= $year; ?>-1">1~2月</a>
-    <a class="btn btn-secondary" href="?do=award_numbers&pd=<?= $year; ?>-2">3~4月</a>
-    <a class="btn btn-secondary" href="?do=award_numbers&pd=<?= $year; ?>-3">5~6月</a>
-    <a class="btn btn-secondary" href="?do=award_numbers&pd=<?= $year; ?>-4">7~8月</a>
-    <a class="btn btn-secondary" href="?do=award_numbers&pd=<?= $year; ?>-5">9~10月</a>
-    <a class="btn btn-secondary" href="?do=award_numbers&pd=<?= $year; ?>-6">11~12月</a>
+    <a style="font-weight:900;" class="btn btn-outline-dark" href="?do=award_numbers&pd=<?= $year; ?>-1">1~2月</a>
+    <a style="font-weight:900;" class="btn btn-outline-dark" href="?do=award_numbers&pd=<?= $year; ?>-2">3~4月</a>
+    <a style="font-weight:900;" class="btn btn-outline-dark" href="?do=award_numbers&pd=<?= $year; ?>-3">5~6月</a>
+    <a style="font-weight:900;" class="btn btn-outline-dark" href="?do=award_numbers&pd=<?= $year; ?>-4">7~8月</a>
+    <a style="font-weight:900;" class="btn btn-outline-dark" href="?do=award_numbers&pd=<?= $year; ?>-5">9~10月</a>
+    <a style="font-weight:900;" class="btn btn-outline-dark" href="?do=award_numbers&pd=<?= $year; ?>-6">11~12月</a>
   </div>
   <table class="table table-bordered table-sm mx-auto" summary="統一發票中獎號碼單">
 

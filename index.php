@@ -12,13 +12,34 @@ include_once "base.php";
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            background-color: #0F4C81;
+            color: #F4DBB3
+        }
+
+        a h1 {
+            color: #F4DBB3;
+        }
+        thead{
+            font-weight:900;
+        }
+
+        table {
+            font-weight:600;
+            color: #0F4C81 !important;
+        }
+
+    </style>
 </head>
 
 <body>
     <div class="container">
-    <a href="index.php" style="text-decoration:none;">
-        <h1 class="text-center text-dark">統一發票紀錄與對獎</h1>
-    </a>
+        <a href="index.php" style="text-decoration:none;">
+            <h1 class="text-center p-3">統一發票紀錄與對獎</h1>
+        </a>
         <div class="col-10 d-flex justify-content-between p-3 mx-auto border">
             <?php
             $month = [
@@ -33,20 +54,20 @@ include_once "base.php";
             ?>
             <h3><?= $month[$m]; ?></h3>
             <div class="text-center ">
-                <a href="?do=invoice_list" class="btn btn btn-outline-dark">當期發票</a>
+                <a href="?do=invoice_list" class="btn btn-outline-light">當期發票</a>
             </div>
             <div class="text-center">
-                <a href="?do=award_numbers" class="btn btn btn-outline-dark">對獎</a>
+                <a href="?do=award_numbers" class="btn btn-outline-light">對獎</a>
             </div>
             <div class="text-center">
-                <a href="?do=add_awards" class="btn btn btn-outline-dark">輸入開獎獎號</a>
+                <a href="?do=add_awards" class="btn btn-outline-light">輸入開獎獎號</a>
             </div>
             <div class="text-center">
-                <a href="index.php" class="btn btn btn-outline-dark">回首頁</a>
+                <a href="index.php" class="btn btn-outline-light">回首頁</a>
             </div>
         </div>
 
-        <div class="col-10 d-flex p-2 mx-auto border justyfy-content-center ">
+        <div style="background-color:rgba(244,219,179,1);" class="col-10 d-flex p-2 mx-auto border justyfy-content-center ">
             <?php
             if (isset($_GET['do'])) {
                 $file = $_GET['do'] . ".php";

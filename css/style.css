@@ -20,7 +20,9 @@
 body {
   width: 100vw;
   height: 100vh;
+  background-color: #0F4C81 ;
+  
 }
-/* .container>div>div.row{
-  background:#0F4C81 ;
-} */
+.container>div>div.row{
+  background:#F4DBB3 ;
+}
