@@ -1,3 +1,4 @@
+<table class="table text-center">
 <?php
 include_once "base.php";
 
@@ -12,10 +13,10 @@ $period_str = [
     5 => '9~10月',
     6 => '11~12月'
 ];
-
-echo "你要對的發票是" . $_GET['year'] . "年的";
-echo $period_str[$_GET['period']] . "的發票";
-
+echo "<th colspan=2>";
+echo $_GET['year'] . "年";
+echo $period_str[$_GET['period']] . "發票";
+echo "</th>";
 // 撈出該期的發票
 $invoices = $pdo->query("select * from invoices where period='{$_GET['period']}' AND left(date,4)='{$_GET['year']}' order by date desc")->fetchAll();
 // $invoices=$pdo->query("select * from invoices where period='{$_GET['period']}' AND left(date,4)='{$_GET['year']}' order by date desc")->fetchAll();
@@ -61,15 +62,19 @@ foreach ($invoices as $inv) {
             case 1:
                 // 特別號=我的發票號碼
                 if ($award['number'] == $number) {
-                    echo "<br>號碼=" . $number . "<br>";
+                    echo"<tr>";
+                    echo "<td'>號碼=" . $number . "<td>";
                     echo "<br>中特別獎<br>";
+                    echo "</tr>";
                     $all_res = 1;
                 }
                 break;
             case 2:
                 if ($award['number'] == $number) {
-                    echo "<br>號碼=" . $number . "<br>";
+                    echo"<tr>";
+                    echo "<td>號碼=" . $number . "<td>";
                     echo "<br>中特獎<br>";
+                    echo"</tr>";
                     $all_res = 1;
                 }
                 break;
@@ -88,15 +93,19 @@ foreach ($invoices as $inv) {
                     }
                 }
                 if ($res != -1) {
-                    echo "<br>號碼=" . $number . "<br>";
+                    echo"<tr>";
+                    echo "<td>號碼=" . $number . "<td>";
                     echo "中{$awardStr[$res]}獎<br>";
+                    echo"</tr>";
                     $all_res = 1;
                 }
                 break;
             case 4:
                 if ($award['number'] == mb_substr($number, 5, 3, 'utf-8')) {
-                    echo "<br>號碼=" . $number . "<br>";
+                    echo"<tr>";
+                    echo "<td>號碼=" . $number . "<td>";
                     echo "中了增開六獎";
+                    echo"</tr>";
                     $all_res = 1;
                 }
                 break;
@@ -106,3 +115,5 @@ foreach ($invoices as $inv) {
 if ($all_res == -1) {
     echo "很可惜，都沒有中";
 }
+?>
+</table>

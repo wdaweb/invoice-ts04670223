@@ -77,21 +77,27 @@ $rows = $pdo->query($sql)->fetchAll();
 <form class="d-flex" action="index.php" method="get">
     <input type="hidden" name="do" value="invoice_list">
     <input type="hidden" name="pd" value="<?= $period ?>">
-    <a class="btn btn-light" href="?do=invoice_list&pd=<?=$period;?>&i=<?=$pageNow-1;?>"><i class="fas fa-angle-left"></i></a>
-    <select class="form-control" name="i" onchange="submit()">
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <a class="btn btn-light" href="?do=invoice_list&pd=<?= $period; ?>&i=<?= $pageNow - 1; ?>"><i class="fas fa-angle-left"></i></a>
+        <select class="border-0 btn btn-light form-control" name="i" onchange="submit()">
+            <?php
+            for ($i = 1; $i <= $pageSum; $i++) {
+                if ($_GET['i'] == $i) {
+                    echo "<option  value='$i' selected>" . $i . "</option>";
+                } else {
+                    echo "<option value='$i'>" . $i . "</option>";
+                }
+            }
+            ?>
+        </select>
         <?php
-        for ($i = 1; $i <= $pageSum; $i++) {
-            echo "<option value='$i'>" . $i . "</option>";
+        $nextpage = $pageNow;
+        if ($pageNow >= $pageSum) {
+            $nextpage = $pageSum;
+        } else {
+            $nextpage = $pageNow + 1;
         }
         ?>
-    </select>
-    <?php
-    $nextpage=$pageNow;
-    if ($pageNow>=$pageSum) {
-        $nextpage=$pageSum;
-    }else{
-        $nextpage=$pageNow+1;
-    }
-    ?>
-<a class="btn btn-light" href="?do=invoice_list&pd=<?=$period;?>&i=<?=$nextpage;?>"><i class="fas fa-angle-right"></i></a>
+        <a class="btn btn-light" href="?do=invoice_list&pd=<?= $period; ?>&i=<?= $nextpage; ?>"><i class="fas fa-angle-right"></i></a>
+    </div>
 </form>

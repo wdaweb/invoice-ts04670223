@@ -17,7 +17,10 @@ include_once "base.php";
             width: 100vw;
             height: 100vh;
             background-color: #0F4C81;
-            color: #F4DBB3
+            color: #0F4C81;
+        }
+        h3{
+            color: #F4DBB3;
         }
 
         a h1 {
@@ -52,7 +55,7 @@ include_once "base.php";
             ];
             $m = ceil(date("m") / 2);
             ?>
-            <h3><?= $month[$m]; ?></h3>
+            <a href="?do=invoice_list&pd=<?=$m;?>"><h3><?= $month[$m]; ?></h3></a>
             <div class="text-center ">
                 <a href="?do=invoice_list" class="btn btn-outline-light">當期發票</a>
             </div>

@@ -84,7 +84,7 @@ function all($table, ...$arg)
     $sql = $sql . $arg[1];
   } else {
   }
-  echo $sql . "<br>";
+  // echo $sql . "<br>";
   return $pdo->query($sql)->fetchAll();
 }
 function del($table,$id){
