@@ -13,9 +13,9 @@ $_SESSION['err']=[];
 // echo "<pre>";
 // print_r($tmp);
 // echo "</pre>";
-echo "<pre>";
-print_r(array_keys($_POST));
-echo "</pre>";
+// echo "<pre>";
+// print_r(array_keys($_POST));
+// echo "</pre>";
 accept('code','發票的欄位為必填');
 length('code',2,2,'長度需為2位數');
 accept('number','發票的欄位為必填');
@@ -26,18 +26,18 @@ echo "<br>";
 // echo "inserts into invoices (`".implode("`,`",array_keys($_POST))."`)";
 // echo "values('".implode("','",$_POST)."')";
 
-save('invoices',$_POST);
+if(empty($_SESSION['err'])){
+  $pdo->exec($sql);
+  header("location:../mem.php?do=invoice_list_mem");
+  save('invoices',$_POST);
+}else{
+  header("location:../mem.php");
+
+}
 // $sql="insert into invoices (`".implode("`,`",array_keys($_POST))."`)values('".implode("','",$_POST)."')";
 // echo $sql;
 echo "新增完成";
 
 
-if(empty($_SESSION['err'])){
-  $pdo->exec($sql);
-  header("location:../index.php?do=invoice_list");
-}else{
-  header("location:../index.php");
-
-}
 
 ?>

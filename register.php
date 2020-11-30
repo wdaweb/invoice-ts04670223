@@ -1,5 +1,6 @@
 <?php
 include_once "base.php";
+session_start();
 if (isset($_SESSION['login'])) {
     $sql_user = "select `member`.`role`,`login`.`acc` from member,login where `member`.`login_id`=`login`.`id` && acc='{$_SESSION['login']}'";
     $user = $pdo->query($sql_user)->fetch(PDO::FETCH_ASSOC);
@@ -8,12 +9,14 @@ if (isset($_SESSION['login'])) {
         case '會員';
             header('location:mem.php');
             break;
+        case 'VIP';
+            header('location:vip.php');
+            break;
         case '管理員';
             header('location:admin.php');
             break;
     }
 }
-session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,7 +73,9 @@ session_destroy();
             ];
             $m = ceil(date("m") / 2);
             ?>
+            <a href="?do=invoice_list&pd=<?= $m; ?>">
                 <h3><?= $month[$m]; ?></h3>
+            </a>
             <div class="text-center ">
                 <a href="?do=invoice_list" class="btn btn-outline-light">當期發票</a>
             </div>
@@ -83,29 +88,46 @@ session_destroy();
         </div>
 
         <div style="background-color:rgba(244,219,179,1);" class="col-10 d-flex p-2 mx-auto border justyfy-content-center ">
-            <div class="container ">
-                <div class="col-6  m-auto">
-                    <div class="text-center"style="font-size:16px; color:#F53563;"><?php if (isset($_GET['meg'])) {
-                                                    echo $_GET['meg'];
-                                                } ?></div>
-                    <h5 class="text-center py-3 border-bottom">會員登入</h5>
-                    <form action="check.php" class="mt-3 col-12 mx-auto" method="post">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">帳號：</label>
-                            <input type="text" name="acc" class="form-control" placeholder="請輸入帳號">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">密碼：</label>
-                            <input type="password" name="pw" class="form-control" placeholder="請輸入密碼">
-                            <p class="d-flex justify-content-around" style="font-size:0.87rem">
-                                <a href="forget_pw.php">忘記密碼?</a>
-                                <a href="register.php">註冊新帳號</a>
-                            </p>
-                            <input type="submit" value="登入" class="btn btn-primary mx-auto">
-                        </div>
-                    </form>
+        <div class="container">
+        <h4 class="text-center">註冊帳號</h4>
+        <form action="add_user.php" method="post" class=" col-6  m-auto">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">帳號:</label>
+                    <input type="text" name="acc" class="form-control"placeholder="請輸入帳號">
                 </div>
-            </div>
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">密碼:</label>
+                    <input type="password" name="pw" class="form-control"placeholder="請輸入密碼">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">姓名:</label>
+                    <input type="text" name="name" class="form-control"placeholder="請輸入姓名">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">生日:</label>
+                    <input type="date" name="birthday" class="form-control"placeholder="請輸入生日">
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="inputEmail4">地址:</label>
+                    <input type="text" name="addr" class="form-control"placeholder="請輸入地址">
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="inputEmail4">Email:</label>
+                    <input type="email" name="email" class="form-control"placeholder="請輸入Email">
+                </div>
+                <label class="my-1 mr-2" for="inlineFormCustomSelectPref">學歷:</label>
+                    <select name="education" id="" class="custom-select my-1 mr-sm-2">
+                        <option value="國中">國中</option>
+                        <option value="高中">高中</option>
+                        <option value="大學/專科">大學/專科</option>
+                        <option value="碩士">碩士</option>
+                        <option value="博士">博士</option>
+                    </select>
+                    <input type="submit" value="確認新增"class="btn btn-primary my-3" >
+                    <input type="reset" value="重置" class="btn btn-primary m-3">
+        </form>
+    </div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

@@ -1,19 +1,5 @@
 <?php
 include_once "base.php";
-if (isset($_SESSION['login'])) {
-    $sql_user = "select `member`.`role`,`login`.`acc` from member,login where `member`.`login_id`=`login`.`id` && acc='{$_SESSION['login']}'";
-    $user = $pdo->query($sql_user)->fetch(PDO::FETCH_ASSOC);
-    // exit();
-    switch ($user['role']) {
-        case '會員';
-            header('location:mem.php');
-            break;
-        case '管理員';
-            header('location:admin.php');
-            break;
-    }
-}
-session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,29 +19,28 @@ session_destroy();
             background-color: #0F4C81;
             color: #0F4C81;
         }
-
-        h3 {
+        h3{
             color: #F4DBB3;
         }
 
         a h1 {
             color: #F4DBB3;
         }
-
-        thead {
-            font-weight: 900;
+        thead{
+            font-weight:900;
         }
 
         table {
-            font-weight: 600;
+            font-weight:600;
             color: #0F4C81 !important;
         }
+
     </style>
 </head>
 
 <body>
     <div class="container">
-        <a href="index.php" style="text-decoration:none;">
+        <a href="admin.php" style="text-decoration:none;">
             <h1 class="text-center p-3">統一發票紀錄與對獎</h1>
         </a>
         <div class="col-10 d-flex justify-content-between p-3 mx-auto border">
@@ -70,42 +55,33 @@ session_destroy();
             ];
             $m = ceil(date("m") / 2);
             ?>
-                <h3><?= $month[$m]; ?></h3>
+            <a href="?do=invoice_list_admin&pd=<?=$m;?>"><h3><?= $month[$m]; ?></h3></a>
             <div class="text-center ">
-                <a href="?do=invoice_list" class="btn btn-outline-light">當期發票</a>
+                <a href="?do=invoice_list_admin" class="btn btn-outline-light">當期發票</a>
             </div>
             <div class="text-center">
                 <a href="?do=award_numbers" class="btn btn-outline-light">對獎</a>
             </div>
             <div class="text-center">
-                <a href="index.php" class="btn btn-outline-light">回首頁</a>
+                <a href="?do=add_awards" class="btn btn-outline-light">輸入開獎獎號</a>
+            </div>
+            <div class="text-center">
+                <a href="admin.php" class="btn btn-outline-light">輸入發票</a>
+            </div>
+            <div class="text-center">
+                <a href="exit.php" class="btn btn-outline-light">登出</a>
             </div>
         </div>
 
         <div style="background-color:rgba(244,219,179,1);" class="col-10 d-flex p-2 mx-auto border justyfy-content-center ">
-            <div class="container ">
-                <div class="col-6  m-auto">
-                    <div class="text-center"style="font-size:16px; color:#F53563;"><?php if (isset($_GET['meg'])) {
-                                                    echo $_GET['meg'];
-                                                } ?></div>
-                    <h5 class="text-center py-3 border-bottom">會員登入</h5>
-                    <form action="check.php" class="mt-3 col-12 mx-auto" method="post">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">帳號：</label>
-                            <input type="text" name="acc" class="form-control" placeholder="請輸入帳號">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">密碼：</label>
-                            <input type="password" name="pw" class="form-control" placeholder="請輸入密碼">
-                            <p class="d-flex justify-content-around" style="font-size:0.87rem">
-                                <a href="forget_pw.php">忘記密碼?</a>
-                                <a href="register.php">註冊新帳號</a>
-                            </p>
-                            <input type="submit" value="登入" class="btn btn-primary mx-auto">
-                        </div>
-                    </form>
-                </div>
-            </div>
+            <?php
+            if (isset($_GET['do'])) {
+                $file = $_GET['do'] . ".php";
+                include $file;
+            } else {
+                include "main_admin.php";
+            }
+            ?>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

@@ -1,4 +1,4 @@
-<form class="mx-auto p-2" action="api/add_invoice.php" method="post">
+<form class="mx-auto p-2" action="api/add_invoice_mem.php" method="post">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label style="font-weight:900;color:#0F4C81;">日期:</label>
@@ -36,6 +36,7 @@
       <?php errFeedBack('payment');?>
     </div>
     <div class="mx-auto">
+      <input type="hidden" name="name_id" value="<?=$_SESSION['login'];?>">
       <input style="font-weight:900;" class="btn btn-outline-dark" type="submit" value="送出">
     </div>
   </div>

@@ -4,7 +4,7 @@ $codeBase=["AB","FF","GD","KJ","FJ","IY"];
 echo "資料產生中.....";
 echo date("Y-m-d H:i:s");
 
-for($i=0;$i<10000;$i++){
+for($i=0;$i<5;$i++){
 
   $code=$codeBase[rand(0,5)];
   $number=sprintf("%08d",rand(0,99999999));
@@ -25,7 +25,8 @@ for($i=0;$i<10000;$i++){
     'number'=>$number,
     'payment'=>$payment,
     'date'=>$date,
-    'period'=>$period
+    'period'=>$period,
+    'name_id'=>'mack1'
   
   ];
   $sql="insert into invoices (`".implode("`,`",array_keys($hope))."`)values('".implode("','",$hope)."')";

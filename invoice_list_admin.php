@@ -13,8 +13,15 @@ if (!empty($_GET['i'])) {
 }
 $pageSum = ceil($rowCount[0] / $pageNumber);
 $pageStar = ($pageNow - 1) * $pageNumber;
-$sql = "select * from `invoices` where period='$period' order by date desc LIMIT $pageStar,$pageNumber";
-
+$sql = "select `invoices`.`id`,
+`invoices`.`code`,
+`invoices`.`number`,
+`invoices`.`period`,
+`invoices`.`payment`,
+`invoices`.`date`,
+`invoices`.`create_time`,
+`invoices`.`name_id`
+from `invoices` where '{$_SESSION['login']}'=`invoices`.`name_id` && `invoices`.`period`='$period' order by date desc LIMIT $pageStar,$pageNumber";
 $rows = $pdo->query($sql)->fetchAll();
 
 
@@ -25,12 +32,12 @@ $rows = $pdo->query($sql)->fetchAll();
 ?>
 <div class="row justify-content-center mx-auto">
     <div class="btn-group mb-2 ">
-        <a style="font-weight:900;" class="btn btn-outline-dark " href="?do=invoice_list&pd=1">1~2月</a>
-        <a style="font-weight:900;" class="btn btn-outline-dark " href="?do=invoice_list&pd=2">3~4月</a>
-        <a style="font-weight:900;" class="btn btn-outline-dark " href="?do=invoice_list&pd=3">5~6月</a>
-        <a style="font-weight:900;" class="btn btn-outline-dark " href="?do=invoice_list&pd=4">7~8月</a>
-        <a style="font-weight:900;" class="btn btn-outline-dark " href="?do=invoice_list&pd=5">9~10月</a>
-        <a style="font-weight:900;" class="btn btn-outline-dark " href="?do=invoice_list&pd=6">11~12月</a>
+        <a style="font-weight:900;" class="btn btn-outline-dark " href="?do=invoice_list_admin&pd=1">1~2月</a>
+        <a style="font-weight:900;" class="btn btn-outline-dark " href="?do=invoice_list_admin&pd=2">3~4月</a>
+        <a style="font-weight:900;" class="btn btn-outline-dark " href="?do=invoice_list_admin&pd=3">5~6月</a>
+        <a style="font-weight:900;" class="btn btn-outline-dark " href="?do=invoice_list_admin&pd=4">7~8月</a>
+        <a style="font-weight:900;" class="btn btn-outline-dark " href="?do=invoice_list_admin&pd=5">9~10月</a>
+        <a style="font-weight:900;" class="btn btn-outline-dark " href="?do=invoice_list_admin&pd=6">11~12月</a>
     </div>
     <table class="table text-center">
         <thead>
@@ -74,11 +81,11 @@ $rows = $pdo->query($sql)->fetchAll();
     </div>
 </div> -->
 
-<form class="d-flex" action="index.php" method="get">
-    <input type="hidden" name="do" value="invoice_list">
+<form class="d-flex" action="admin.php" method="get">
+    <input type="hidden" name="do" value="invoice_list_admin">
     <input type="hidden" name="pd" value="<?= $period ?>">
     <div class="btn-group" role="group" aria-label="Basic example">
-        <a class="btn btn-light" href="?do=invoice_list&pd=<?= $period; ?>&i=<?= $pageNow - 1; ?>"><i class="fas fa-angle-left"></i></a>
+        <a class="btn btn-light" href="?do=invoice_list_admin&pd=<?= $period; ?>&i=<?= $pageNow - 1; ?>"><i class="fas fa-angle-left"></i></a>
         <select class="border-0 btn btn-light form-control" name="i" onchange="submit()">
             <?php
             for ($i = 1; $i <= $pageSum; $i++) {
@@ -98,6 +105,6 @@ $rows = $pdo->query($sql)->fetchAll();
             $nextpage = $pageNow + 1;
         }
         ?>
-        <a class="btn btn-light" href="?do=invoice_list&pd=<?= $period; ?>&i=<?= $nextpage; ?>"><i class="fas fa-angle-right"></i></a>
+        <a class="btn btn-light" href="?do=invoice_list_admin&pd=<?= $period; ?>&i=<?= $nextpage; ?>"><i class="fas fa-angle-right"></i></a>
     </div>
 </form>
