@@ -1,19 +1,34 @@
 <?php
 include_once "base.php";
-if (isset($_SESSION['login'])) {
-    $sql_user = "select `member`.`role`,`login`.`acc` from member,login where `member`.`login_id`=`login`.`id` && acc='{$_SESSION['login']}'";
-    $user = $pdo->query($sql_user)->fetch(PDO::FETCH_ASSOC);
-    // exit();
-    switch ($user['role']) {
-        case '會員';
-            header('location:mem.php');
-            break;
-        case '管理員';
-            header('location:admin.php');
-            break;
-    }
-}
-session_destroy();
+// if (isset($_SESSION['login'])) {
+//     $sql_user = "select `member`.`role`,`login`.`acc` from member,login where `member`.`login_id`=`login`.`id` && acc='{$_SESSION['login']}'";
+//     $user = $pdo->query($sql_user)->fetch(PDO::FETCH_ASSOC);
+//     // exit();
+//     switch ($user['role']) {
+//         case '會員';
+//             header('location:mem.php');
+//             break;
+//         case '管理員';
+//             header('location:admin.php');
+//             break;
+//     }
+// }
+$str = captcha(6);
+$img = cpatchapic($str);
+$_SESSION['ans'] = $str;
+// if (isset($_POST['ans'])) {
+//     echo "你輸入的驗證碼為:" . $_POST['ans'];
+//     echo "<br>";
+//     echo "要比對的驗證碼內容為:" . $str;
+//     echo "<br>";
+//     echo "原始的的驗證碼內容為:" . $_POST['src'];
+//     if ($_POST['ans'] == $_SESSION['ans']) {
+//         echo "你輸入的驗證碼正確";
+//     } else {
+//         echo  "你輸入的驗證碼錯誤";
+//     }
+// }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +53,7 @@ session_destroy();
             color: #F4DBB3;
         }
 
-        a h1 {
+        h1 {
             color: #F4DBB3;
         }
 
@@ -55,9 +70,7 @@ session_destroy();
 
 <body>
     <div class="container">
-        <a href="index.php" style="text-decoration:none;">
             <h1 class="text-center p-3">統一發票紀錄與對獎</h1>
-        </a>
         <div class="col-10 d-flex justify-content-between p-3 mx-auto border">
             <?php
             $month = [
@@ -70,24 +83,15 @@ session_destroy();
             ];
             $m = ceil(date("m") / 2);
             ?>
-                <h3><?= $month[$m]; ?></h3>
-            <div class="text-center ">
-                <a href="?do=invoice_list" class="btn btn-outline-light">當期發票</a>
-            </div>
-            <div class="text-center">
-                <a href="?do=award_numbers" class="btn btn-outline-light">對獎</a>
-            </div>
-            <div class="text-center">
-                <a href="index.php" class="btn btn-outline-light">回首頁</a>
-            </div>
+            <h3 class="m-auto"><?= $month[$m]; ?></h3>
         </div>
 
         <div style="background-color:rgba(244,219,179,1);" class="col-10 d-flex p-2 mx-auto border justyfy-content-center ">
             <div class="container ">
                 <div class="col-6  m-auto">
-                    <div class="text-center"style="font-size:16px; color:#F53563;"><?php if (isset($_GET['meg'])) {
-                                                    echo $_GET['meg'];
-                                                } ?></div>
+                    <div class="text-center" style="font-size:16px; color:#F53563;"><?php if (isset($_GET['meg'])) {
+                                                                                        echo $_GET['meg'];
+                                                                                    } ?></div>
                     <h5 class="text-center py-3 border-bottom">會員登入</h5>
                     <form action="check.php" class="mt-3 col-12 mx-auto" method="post">
                         <div class="form-group">
@@ -101,8 +105,11 @@ session_destroy();
                                 <a href="forget_pw.php">忘記密碼?</a>
                                 <a href="register.php">註冊新帳號</a>
                             </p>
-                            <input type="submit" value="登入" class="btn btn-primary mx-auto">
+                            <?= "<img src='$img'>"; ?>
+                            <input type="text" class="form-control" name="ans">
+                            <input type="hidden" name="src" value="<?= $str; ?>">
                         </div>
+                        <input type="submit" value="登入" class="btn btn-primary mx-auto">
                     </form>
                 </div>
             </div>

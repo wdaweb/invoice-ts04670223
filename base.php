@@ -136,4 +136,95 @@ function q($sql){
   global $pdo;
   return $pdo->query($sql)->fetchAll();
 }
+
+
+function captcha($n)
+{
+  $str = "";
+  for ($i = 0; $i < $n; $i++) {
+    $type = rand(1, 3);
+    switch ($type) {
+      case 1:
+        $str = $str . chr(rand(65, 90));
+        break;
+      case 2:
+        $str = $str . chr(rand(97, 122));
+        break;
+      case 3:
+        $str = $str . chr(rand(48, 57));
+        break;
+    }
+  }
+  return $str;
+}
+// $type2=chr(rand(97,122));
+// $type3=chr(rand(48,57));
+
+
+// 產生底圖
+function cpatchapic($str)
+{
+  $fontsize =rand(16,30);
+  $vv = 10;
+  $fontlist = ['arial.ttf', 'arialbd.ttf', 'arialbi.ttf'];
+  $fontpath = realpath("./font/{$fontlist[0]}");
+  $ttbox = imagettfbbox($fontsize, 0, $fontpath, $str);
+  $w = $ttbox[2] - $ttbox[0] + ($vv * 2) + (mb_strlen($str) * 10);
+  $h = $ttbox[1] - $ttbox[7]+ ($vv * 2) +10;
+  $base_img = imagecreatetruecolor($w, $h);
+  $color = imagecolorallocate($base_img, rand(200, 255), rand(200, 255), rand(200, 255));
+  imagefill($base_img, 0, 0, $color);
+
+
+
+  $x = 15;
+  $y = 15;
+  for ($i=0;$i<strlen($str); $i++) {
+    $fontcolor = imagecolorallocate($base_img,rand(0,150),rand(0,150),rand(0, 150));
+    $char = mb_substr($str, $i, 1);
+    $angle = rand(30, -30);
+    $ttbox = imagettfbbox($fontsize, $angle, $fontpath, $char);
+    // print_r($ttbox);
+    $tw=$ttbox[2]-$ttbox[0];
+    $th=$ttbox[1]-$ttbox[7];
+    $yz=$y+$th+rand(5, -5);
+    imagettftext($base_img,$fontsize,$angle,$x,$yz,$fontcolor, $fontpath,$char);
+    $x=$x+$tw+10;
+    // imagestring($base_img,5,$x,20,$char,$fontcolor);
+  }
+  // $h1=8;
+  // imageline($base_img,0,$h1,$w,$h1,$linecolor);
+  // imageline($base_img,0,$h1+8,$w,$h1+8,$linecolor);
+  // imageline($base_img,0,$h1+12,$w,$h1+12,$linecolor);
+  // 產生隨機亂數線條
+$lines=5;
+    for ($i = 0; $i < $lines; $i++) {
+      $linecolor = imagecolorallocate($base_img,rand(50,200),rand(50,200),rand(50,200));
+
+      imageline($base_img,rand(0,0+$vv),rand(0,$h),rand($w,$w-$vv),rand(0,$h),$linecolor);
+    }
+  // function aa($a){
+    //   global $w;
+    //   global $base_img;
+    //   global $h;
+    //   global $linecolor;
+    //   for ($i=0; $i <$a ; $i++) { 
+      //     imageline($base_img,0,0,$w+$a,$h+$a,$linecolor);
+      //   }
+      // }
+      
+      // echo $fontpath;
+      
+      
+      
+      
+      
+      $dst_path = "./captcha/base_img.png";
+      imagepng($base_img, $dst_path);
+      return $dst_path;
+    }
+      // echo "<div>";
+// echo "<img src='$dst_path'>";
+// echo "</div>";
+
 ?>

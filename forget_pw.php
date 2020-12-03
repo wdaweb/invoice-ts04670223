@@ -59,12 +59,6 @@ include_once "base.php";
       <a href="?do=invoice_list&pd=<?= $m; ?>">
         <h3><?= $month[$m]; ?></h3>
       </a>
-      <div class="text-center ">
-        <a href="?do=invoice_list" class="btn btn-outline-light">當期發票</a>
-      </div>
-      <div class="text-center">
-        <a href="?do=award_numbers" class="btn btn-outline-light">對獎</a>
-      </div>
       <div class="text-center">
         <a href="index.php" class="btn btn-outline-light">回首頁</a>
       </div>
@@ -87,9 +81,9 @@ include_once "base.php";
         }
       }
       ?>
-      <form action="?" method="post">
-        <input type="text" name="email">
-        <input type="submit" value="查詢">
+      <form class="m-auto" action="?" method="post">
+        <input class="form-control" type="text" name="email"placeholder="請輸入email">
+        <input class="btn btn-primary mx-auto" type="submit" value="查詢">
       </form>
       <div><?php
             if (isset($res)) {

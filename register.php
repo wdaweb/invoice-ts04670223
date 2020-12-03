@@ -76,12 +76,6 @@ if (isset($_SESSION['login'])) {
             <a href="?do=invoice_list&pd=<?= $m; ?>">
                 <h3><?= $month[$m]; ?></h3>
             </a>
-            <div class="text-center ">
-                <a href="?do=invoice_list" class="btn btn-outline-light">當期發票</a>
-            </div>
-            <div class="text-center">
-                <a href="?do=award_numbers" class="btn btn-outline-light">對獎</a>
-            </div>
             <div class="text-center">
                 <a href="index.php" class="btn btn-outline-light">回首頁</a>
             </div>

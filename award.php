@@ -1,3 +1,4 @@
+<table class="table text-center">
 <?php
 include_once "base.php";
 
@@ -31,15 +32,19 @@ foreach ($awards as $award) {
         case 1:
             // 特別號=我的發票號碼
             if ($award['number'] == $number) {
-                echo "<br>號碼=" . $number . "<br>";
+                echo "<tr>";
+                echo "<td>號碼=" . $number . "</td>";
                 echo "<br>中特別獎<br>";
+                echo "</tr>";
                 $all_res=1;
             }
             break;
         case 2:
             if ($award['number'] == $number) {
-                echo "<br>號碼=" . $number . "<br>";
+                echo "<tr>";
+                echo "<td>號碼=" . $number . "</td>";
                 echo "<br>中特獎<br>";
+                echo "</tr>";
                 $all_res=1;
             }
             break;
@@ -58,21 +63,28 @@ foreach ($awards as $award) {
                 }
             }
             if ($res != -1) {
-                echo "<br>號碼=" . $number . "<br>";
+                echo "<tr>";
+                echo "<td>號碼=" . $number . "</td>";
                 echo "中{$awardStr[$res]}獎<br>";
+                echo "</tr>";
                 $all_res=1;
             }
             break;
         case 4:
             if ($award['number'] == mb_substr($number, 5, 3, 'utf-8')) {
-                echo "<br>號碼=" . $number . "<br>";
-                $all_res=1;
+                echo "<tr>";
+                echo "<td>號碼=" . $number . "</td>";
                 echo "中了增開六獎";
+                echo "</tr>";
+                $all_res=1;
             }
             break;
     }
 }
     if($all_res==-1){
-        echo "很可惜，都沒有中";
+        echo "<tr>";
+        echo "<td>很可惜，都沒有中</td>";
+        echo "</tr>";
     }
 ?>
+</table>
