@@ -9,7 +9,7 @@ if(isset($_GET['del'])){
   $inv=$pdo->query("select * from invoices where id='{$_GET['id']}'")->fetch();
 ?>
 
-<div class="col-md-6 mx-auto ">
+<div class="col-md-7 mx-auto ">
   <div class="text-center mb-2">確認要刪除以下發票資料嗎?</div>
   <ul class="list-group">
     <li class="list-group-item text-center"><?=$inv['code'].$inv['number'];?></li>

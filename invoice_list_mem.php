@@ -33,20 +33,20 @@ $rows = $pdo->query($sql)->fetchAll();
 ?>
 <div class="row justify-content-center mx-auto">
     <div class="btn-group mb-2 ">
-        <a style="font-weight:900;" class="btn btn-outline-dark " href="?do=invoice_list_mem&pd=1">1~2月</a>
-        <a style="font-weight:900;" class="btn btn-outline-dark " href="?do=invoice_list_mem&pd=2">3~4月</a>
-        <a style="font-weight:900;" class="btn btn-outline-dark " href="?do=invoice_list_mem&pd=3">5~6月</a>
-        <a style="font-weight:900;" class="btn btn-outline-dark " href="?do=invoice_list_mem&pd=4">7~8月</a>
-        <a style="font-weight:900;" class="btn btn-outline-dark " href="?do=invoice_list_mem&pd=5">9~10月</a>
-        <a style="font-weight:900;" class="btn btn-outline-dark " href="?do=invoice_list_mem&pd=6">11~12月</a>
+        <a id="aaa" class="btn btn-outline-light " href="?do=invoice_list_mem&pd=1">1~2月</a>
+        <a id="aaa" class="btn btn-outline-light " href="?do=invoice_list_mem&pd=2">3~4月</a>
+        <a id="aaa" class="btn btn-outline-light " href="?do=invoice_list_mem&pd=3">5~6月</a>
+        <a id="aaa" class="btn btn-outline-light " href="?do=invoice_list_mem&pd=4">7~8月</a>
+        <a id="aaa" class="btn btn-outline-light " href="?do=invoice_list_mem&pd=5">9~10月</a>
+        <a id="aaa" class="btn btn-outline-light " href="?do=invoice_list_mem&pd=6">11~12月</a>
     </div>
     <table class="table text-center">
         <thead>
             <tr>
-                <th style="font-size: 1.2rem;">發票號碼</th>
-                <th style="font-size: 1.2rem;">消費日期</th>
-                <th style="font-size: 1.2rem;">消費金額</th>
-                <th style="font-size: 1.2rem;">操作</th>
+                <th>發票號碼</th>
+                <th>消費日期</th>
+                <th>消費金額</th>
+                <th>操作</th>
             </tr>
         </thead>
         <?php
@@ -58,7 +58,7 @@ $rows = $pdo->query($sql)->fetchAll();
                     <td><?= $row['date']; ?></td>
                     <td><?= $row['payment']; ?></td>
                     <td>
-                        <a href="?do=edit_invoice&id=<?= $row['id']; ?>"><button class="btn btn-outline-dark fas fa-highlighter" data-toggle="tooltip" data-placement="top" title="編輯"></button></a>
+                        <a href="?do=edit_invoice_mem&id=<?= $row['id']; ?>"><button class="btn btn-outline-light fas fa-highlighter" data-toggle="tooltip" data-placement="top" title="編輯"></button></a>
                         <a href="?do=del_invoice_mem&id=<?= $row['id']; ?>"><button class="btn btn-outline-danger fas fa-trash" data-toggle="tooltip" data-placement="top" title="刪除"></button></a>
                         <a href="?do=award&id=<?= $row['id']; ?>"><button class="btn btn-outline-warning fas fa-trophy" data-toggle="tooltip" data-placement="top" title="對獎"></button></a>
                     </td>

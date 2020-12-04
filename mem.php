@@ -12,31 +12,6 @@ include_once "base.php";
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        
-        body {
-            width: 100vw;
-            height: 100vh;
-            background-color: #0F4C81;
-            color: #0F4C81;
-        }
-        h3{
-            color: #F4DBB3;
-        }
-
-        a h1 {
-            color: #F4DBB3;
-        }
-        thead{
-            font-weight:900;
-        }
-
-        table {
-            font-weight:600;
-            color: #0F4C81 !important;
-        }
-
-    </style>
 </head>
 
 <body>
@@ -44,7 +19,7 @@ include_once "base.php";
         <a href="mem.php" style="text-decoration:none;">
             <h1 class="text-center p-3">統一發票紀錄與對獎</h1>
         </a>
-        <div class="col-10 d-flex justify-content-between p-3 mx-auto border">
+        <div class="col-12 d-flex justify-content-between p-3 mx-auto ">
             <?php
             $month = [
                 1 => "1~2月",
@@ -71,7 +46,7 @@ include_once "base.php";
             </div>
         </div>
 
-        <div style="background-color:rgba(244,219,179,1);" class="col-10 d-flex p-2 mx-auto border justyfy-content-center ">
+        <div class="col-12 d-flex p-2 mx-auto  justyfy-content-center ">
             <?php
             if (isset($_GET['do'])) {
                 $file = $_GET['do'] . ".php";

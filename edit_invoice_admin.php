@@ -7,7 +7,7 @@ $inv = $pdo->query($sql)->fetch();
 // print_r($inv);
 // echo "</pre>";
 ?>
-<form class="mx-auto p-3" action="api/update_invoice.php" method="post">
+<form class="mx-auto p-3" action="api/update_invoice_admin.php" method="post">
   <div class="form-row">
     <input type="hidden" name="id" value="<?= $inv['id']; ?>">
     <div class="form-row">
@@ -33,6 +33,7 @@ $inv = $pdo->query($sql)->fetch();
       <div class="text-center mt-2 mx-auto">
         <input class="btn btn-outline-danger" type="submit" value="修改">
         <input class="btn btn-outline-dark" type="reset" value="重置">
+        <a href="admin.php?do=invoice_list_admin" class="btn btn-outline-light">返回</a>
       </div>
     </div>
   </div>

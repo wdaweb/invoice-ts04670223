@@ -1,22 +1,5 @@
 <?php
 include_once "base.php";
-session_start();
-if (isset($_SESSION['login'])) {
-    $sql_user = "select `member`.`role`,`login`.`acc` from member,login where `member`.`login_id`=`login`.`id` && acc='{$_SESSION['login']}'";
-    $user = $pdo->query($sql_user)->fetch(PDO::FETCH_ASSOC);
-    // exit();
-    switch ($user['role']) {
-        case '會員';
-            header('location:mem.php');
-            break;
-        case 'VIP';
-            header('location:vip.php');
-            break;
-        case '管理員';
-            header('location:admin.php');
-            break;
-    }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,39 +12,14 @@ if (isset($_SESSION['login'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        body {
-            width: 100vw;
-            height: 100vh;
-            background-color: #0F4C81;
-            color: #0F4C81;
-        }
-
-        h3 {
-            color: #F4DBB3;
-        }
-
-        a h1 {
-            color: #F4DBB3;
-        }
-
-        thead {
-            font-weight: 900;
-        }
-
-        table {
-            font-weight: 600;
-            color: #0F4C81 !important;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="container">
+    <div class="container vh">
         <a href="index.php" style="text-decoration:none;">
             <h1 class="text-center p-3">統一發票紀錄與對獎</h1>
         </a>
-        <div class="col-12 d-flex justify-content-between p-3 mx-auto border">
+        <div class="col-12 d-flex justify-content-between p-3 mx-auto">
             <?php
             $month = [
                 1 => "1~2月",
@@ -79,7 +37,7 @@ if (isset($_SESSION['login'])) {
             </div>
         </div>
 
-        <div style="background-color:rgba(244,219,179,1);" class="col-12 d-flex p-2 mx-auto border justyfy-content-center ">
+        <div class="col-12 d-flex p-2 mx-auto justyfy-content-center ">
         <div class="container">
         <h4 class="text-center">註冊帳號</h4>
         <form action="add_user.php" method="post" class=" col-12  m-auto">
@@ -116,8 +74,8 @@ if (isset($_SESSION['login'])) {
                         <option value="碩士">碩士</option>
                         <option value="博士">博士</option>
                     </select>
-                    <input type="submit" value="確認新增"class="btn btn-primary my-3" >
-                    <input type="reset" value="重置" class="btn btn-primary m-3">
+                    <input type="submit" value="確認新增"class="btn btn btn-outline-light my-3" >
+                    <input type="reset" value="重置" class="btn btn btn-outline-light m-3">
         </form>
     </div>
         </div>

@@ -1,28 +1,99 @@
-.color{
-  color: #0F4C81;
-  color:#B6CADA;
-  color: #F5B895;
-  color: #F4DBB3;
-
+.color {
+  color: #0f4c81;
+  color: #b6cada;
+  color: #f5b895;
+  color: #f4dbb3;
 }
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400&display=swap");
 
 * {
-    font-family: 'Noto Sans TC', sans-serif;
+  font-family: "Noto Sans TC", sans-serif;
 }
 
 .number {
-    font-size: 1.2rem;
-    color: red;
-    font-weight: bolder;
+  font-size: 1.2rem;
+  color: red;
+  font-weight: bolder;
 }
 
 body {
   width: 100vw;
   height: 100vh;
-  background-color: #0F4C81 ;
-  
+  background-image: linear-gradient(
+    to right top,
+    #a953be,
+    #985fc5,
+    #8769c9,
+    #7671ca,
+    #6878c8,
+    #527fc8,
+    #3c84c6,
+    #2989c1,
+    #008fb9,
+    #0093ae,
+    #1196a0,
+    #369892
+  );
 }
-.container>div>div.row{
-  background:#F4DBB3 ;
+form {
+  color: white;
+}
+
+h1 {
+  color: white;
+  text-shadow: rgb(204, 204, 204) 0px 1px 0px, rgb(201, 201, 201) 0px 2px 0px, rgb(187, 187, 187) 0px 3px 0px,
+    rgb(185, 185, 185) 0px 4px 0px, rgb(170, 170, 170) 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 6px 1px,
+    rgba(0, 0, 0, 0.1) 0px 0px 5px, rgba(0, 0, 0, 0.3) 0px 1px 3px, rgba(0, 0, 0, 0.15) 0px 3px 5px,
+    rgba(0, 0, 0, 0.2) 0px 5px 10px;
+  font-weight: 500;
+}
+h2 {
+  color: whitesmoke;
+  text-shadow: rgba(71, 71, 71, 0.404) 3px 3px 2px;
+  font-weight: 900;
+}
+h3 {
+  color: whitesmoke;
+  text-shadow: rgba(71, 71, 71, 0.404) 3px 3px 2px;
+  font-weight: 900;
+}
+h4 {
+  color: whitesmoke;
+  text-shadow: rgba(71, 71, 71, 0.404) 3px 3px 2px;
+  font-weight: 900;
+}
+h5 {
+  color: whitesmoke;
+  text-shadow: rgba(71, 71, 71, 0.404) 3px 3px 2px;
+  font-weight: 900;
+}
+a {
+  color: whitesmoke;
+  text-shadow: rgba(71, 71, 71, 0.404) 3px 3px 2px;
+  font-weight: 900;
+}
+label {
+  color: whitesmoke;
+  text-shadow: rgba(71, 71, 71, 0.404) 3px 3px 2px;
+  font-weight: 900;
+}
+thead {
+  color: whitesmoke;
+  font-weight: 900;
+}
+tbody {
+  color: whitesmoke;
+}
+.btn {
+  text-shadow: rgba(71, 71, 71, 0.404) 2px 2px 2px;
+  font-weight: 900;
+}
+@media (min-width: 0px) and (max-width: 450px){
+  body{
+    height: 100%;
+    width: 100%;
+  };
+  #aaa{
+    font-size: .1rem;
+  }
 }

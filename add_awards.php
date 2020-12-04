@@ -1,5 +1,5 @@
   <form class="mx-auto" action="api/add_award_number.php" method="post">
-    <table class="table table-bordered" summary="統一發票中獎號碼單">
+    <table class="table " summary="統一發票中獎號碼單">
       <tbody>
         <tr>
           <th id="group0">年月份</th>
@@ -77,7 +77,7 @@
       </tbody>
     </table>
     <div class="text-center">
-      <input style="font-weight:900;" type="submit" value="儲存" class="btn btn-outline-dark">
-      <input style="font-weight:900;" type="reset" value="清空" class="btn btn-outline-dark">
+      <input style="font-weight:900;" type="submit" value="儲存" class="btn btn-outline-light">
+      <input style="font-weight:900;" type="reset" value="清空" class="btn btn-outline-light">
     </div>
   </form>

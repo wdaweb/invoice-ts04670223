@@ -25,7 +25,7 @@ length('number',8,8,'長度需為8位數');
 // echo "<pre>";
 // print_r($_POST);
 // echo "</pre>";
-to('../index.php?do=invoice_list');
+to('../mem.php?do=invoice_list_mem');
 // header("location:../index.php?do=invoice_list");
 
 ?>

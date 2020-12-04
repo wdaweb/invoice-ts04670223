@@ -41,37 +41,12 @@ $_SESSION['ans'] = $str;
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        body {
-            width: 100vw;
-            height: 100vh;
-            background-color: #0F4C81;
-            color: #0F4C81;
-        }
-
-        h3 {
-            color: #F4DBB3;
-        }
-
-        h1 {
-            color: #F4DBB3;
-        }
-
-        thead {
-            font-weight: 900;
-        }
-
-        table {
-            font-weight: 600;
-            color: #0F4C81 !important;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="container">
-            <h1 class="text-center p-3">統一發票紀錄與對獎</h1>
-        <div class="col-12 d-flex justify-content-between p-3 mx-auto border">
+    <div>
+        <h1 class="text-center p-3">統一發票紀錄與對獎</h1>
+        <div class="col-12 d-flex justify-content-between p-3 mx-auto">
             <?php
             $month = [
                 1 => "1~2月",
@@ -86,13 +61,13 @@ $_SESSION['ans'] = $str;
             <h3 class="m-auto"><?= $month[$m]; ?></h3>
         </div>
 
-        <div style="background-color:rgba(244,219,179,1);" class="col-12 d-flex p-2 mx-auto border justyfy-content-center ">
+        <div  class="col-12 d-flex p-2 mx-auto  justyfy-content-center ">
             <div class="container ">
-                <div class="col-6  m-auto">
+                <div class="col-12  m-auto">
                     <div class="text-center" style="font-size:16px; color:#F53563;"><?php if (isset($_GET['meg'])) {
                                                                                         echo $_GET['meg'];
                                                                                     } ?></div>
-                    <h5 class="col-12 text-center py-3 border-bottom">會員登入</h5>
+                    <h2 style="color:white" class="col-12 text-center py-3 ">會員登入</h2>
                     <form action="check.php" class="mt-3 col-12 mx-auto" method="post">
                         <div class="form-group">
                             <label for="exampleInputEmail1">帳號：</label>
@@ -109,7 +84,7 @@ $_SESSION['ans'] = $str;
                             <input type="text" class="form-control" name="ans">
                             <input type="hidden" name="src" value="<?= $str; ?>">
                         </div>
-                        <input type="submit" value="登入" class="btn btn-primary mx-auto">
+                        <input type="submit" value="登入" class="btn btn-outline-light">
                     </form>
                 </div>
             </div>
