@@ -1,13 +1,13 @@
   <form class="mx-auto" action="api/add_award_number.php" method="post">
-    <table class="table table-bordered table-sm" summary="統一發票中獎號碼單">
+    <table class="table table-bordered" summary="統一發票中獎號碼單">
       <tbody>
         <tr>
           <th id="group0">年月份</th>
           <td headers="group0" class="title">
-            <input class="form-control w-25 d-inline " type="number" name="year" min="<?= date("Y") - 1; ?>" max="<?= date("Y") + 1; ?>" step="1" value="<?= date("Y"); ?>">
+            <input class="col-4 form-control  d-inline " type="number" name="year" min="<?= date("Y") - 1; ?>" max="<?= date("Y") + 1; ?>" step="1" value="<?= date("Y"); ?>">
             年
 
-            <select class="form-control d-inline" name="period" style="width: 100px;">
+            <select class="form-control d-inline col-6" name="period" >
               <option value="1">01~02</option>
               <option value="2">03~04</option>
               <option value="3">05~06</option>

@@ -43,7 +43,7 @@ include_once "base.php";
         <a href="admin.php" style="text-decoration:none;">
             <h1 class="text-center p-3">統一發票紀錄與對獎</h1>
         </a>
-        <div class="col-10 d-flex justify-content-between p-3 mx-auto border">
+        <div class="col-12 d-flex justify-content-between p-3 mx-auto border">
             <?php
             $month = [
                 1 => "1~2月",
@@ -73,7 +73,7 @@ include_once "base.php";
             </div>
         </div>
 
-        <div style="background-color:rgba(244,219,179,1);" class="col-10 d-flex p-2 mx-auto border justyfy-content-center ">
+        <div style="background-color:rgba(244,219,179,1);" class="col-12 d-flex p-2 mx-auto border justyfy-content-center ">
             <?php
             if (isset($_GET['do'])) {
                 $file = $_GET['do'] . ".php";

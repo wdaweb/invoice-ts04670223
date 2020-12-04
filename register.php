@@ -61,7 +61,7 @@ if (isset($_SESSION['login'])) {
         <a href="index.php" style="text-decoration:none;">
             <h1 class="text-center p-3">統一發票紀錄與對獎</h1>
         </a>
-        <div class="col-10 d-flex justify-content-between p-3 mx-auto border">
+        <div class="col-12 d-flex justify-content-between p-3 mx-auto border">
             <?php
             $month = [
                 1 => "1~2月",
@@ -73,18 +73,16 @@ if (isset($_SESSION['login'])) {
             ];
             $m = ceil(date("m") / 2);
             ?>
-            <a href="?do=invoice_list&pd=<?= $m; ?>">
                 <h3><?= $month[$m]; ?></h3>
-            </a>
             <div class="text-center">
                 <a href="index.php" class="btn btn-outline-light">回首頁</a>
             </div>
         </div>
 
-        <div style="background-color:rgba(244,219,179,1);" class="col-10 d-flex p-2 mx-auto border justyfy-content-center ">
+        <div style="background-color:rgba(244,219,179,1);" class="col-12 d-flex p-2 mx-auto border justyfy-content-center ">
         <div class="container">
         <h4 class="text-center">註冊帳號</h4>
-        <form action="add_user.php" method="post" class=" col-6  m-auto">
+        <form action="add_user.php" method="post" class=" col-12  m-auto">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">帳號:</label>

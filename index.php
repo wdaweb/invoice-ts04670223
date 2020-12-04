@@ -71,7 +71,7 @@ $_SESSION['ans'] = $str;
 <body>
     <div class="container">
             <h1 class="text-center p-3">統一發票紀錄與對獎</h1>
-        <div class="col-10 d-flex justify-content-between p-3 mx-auto border">
+        <div class="col-12 d-flex justify-content-between p-3 mx-auto border">
             <?php
             $month = [
                 1 => "1~2月",
@@ -86,13 +86,13 @@ $_SESSION['ans'] = $str;
             <h3 class="m-auto"><?= $month[$m]; ?></h3>
         </div>
 
-        <div style="background-color:rgba(244,219,179,1);" class="col-10 d-flex p-2 mx-auto border justyfy-content-center ">
+        <div style="background-color:rgba(244,219,179,1);" class="col-12 d-flex p-2 mx-auto border justyfy-content-center ">
             <div class="container ">
                 <div class="col-6  m-auto">
                     <div class="text-center" style="font-size:16px; color:#F53563;"><?php if (isset($_GET['meg'])) {
                                                                                         echo $_GET['meg'];
                                                                                     } ?></div>
-                    <h5 class="text-center py-3 border-bottom">會員登入</h5>
+                    <h5 class="col-12 text-center py-3 border-bottom">會員登入</h5>
                     <form action="check.php" class="mt-3 col-12 mx-auto" method="post">
                         <div class="form-group">
                             <label for="exampleInputEmail1">帳號：</label>
