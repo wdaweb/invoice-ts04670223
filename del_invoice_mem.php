@@ -3,7 +3,7 @@ include_once "base.php";
 
 if(isset($_GET['del'])){
     $pdo->exec("delete from invoices where id='{$_GET['id']}'");
-    header("location:index.php?do=invoice_list");
+    header("location:mem.php?do=invoice_list_mem");
 }else{
 
   $inv=$pdo->query("select * from invoices where id='{$_GET['id']}'")->fetch();
@@ -18,7 +18,7 @@ if(isset($_GET['del'])){
   </ul>
   <div class="text-center mt-2">
       <a class="btn btn-outline-danger" href="?do=del_invoice&del=1&id=<?=$_GET['id'];?>">確認</a>
-    <a class="btn btn-outline-dark" href="?do=invoice_list">取消</a>
+    <a class="btn btn-outline-dark" href="?do=invoice_list_mem">取消</a>
     </div>
     </div>
 <?php

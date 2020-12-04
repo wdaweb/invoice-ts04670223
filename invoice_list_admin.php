@@ -58,7 +58,7 @@ $rows = $pdo->query($sql)->fetchAll();
                     <td><?= $row['payment']; ?></td>
                     <td>
                         <a href="?do=edit_invoice&id=<?= $row['id']; ?>"><button class="btn btn-outline-dark fas fa-highlighter" data-toggle="tooltip" data-placement="top" title="編輯"></button></a>
-                        <a href="?do=del_invoice&id=<?= $row['id']; ?>"><button class="btn btn-outline-danger fas fa-trash" data-toggle="tooltip" data-placement="top" title="刪除"></button></a>
+                        <a href="?do=del_invoice_admin&id=<?= $row['id']; ?>"><button class="btn btn-outline-danger fas fa-trash" data-toggle="tooltip" data-placement="top" title="刪除"></button></a>
                         <a href="?do=award&id=<?= $row['id']; ?>"><button class="btn btn-outline-warning fas fa-trophy" data-toggle="tooltip" data-placement="top" title="對獎"></button></a>
                     </td>
                 </tr>
