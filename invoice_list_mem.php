@@ -7,7 +7,7 @@ if (isset($_GET['pd'])) {
 }
 $pageNow = 1;
 $pageNumber = 10;
-$rowCount = $pdo->query("select count(period) from `invoices` where period='$period'")->fetch();
+$rowCount = $pdo->query("select count(period) from `invoices` where'{$_SESSION['login']}'=`invoices`.`name_id` && period='$period'")->fetch();
 if (!empty($_GET['i'])) {
     $pageNow = $_GET['i'];
 }

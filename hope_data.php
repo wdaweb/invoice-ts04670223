@@ -4,7 +4,7 @@ $codeBase=["AB","FF","GD","KJ","FJ","IY"];
 echo "資料產生中.....";
 echo date("Y-m-d H:i:s");
 
-for($i=0;$i<5;$i++){
+for($i=0;$i<1000;$i++){
 
   $code=$codeBase[rand(0,5)];
   $number=sprintf("%08d",rand(0,99999999));
