@@ -12,7 +12,7 @@ for($i=0;$i<1000;$i++){
   // echo $number."<br>";
   
 
-  $payment=rand(1,20000);
+  $payment=rand(1,2000);
   $start=strtotime("2020-01-01");
   $end=strtotime("2020-12-31");
   
@@ -26,7 +26,7 @@ for($i=0;$i<1000;$i++){
     'payment'=>$payment,
     'date'=>$date,
     'period'=>$period,
-    'name_id'=>'mack1'
+    'name_id'=>'admin'
   
   ];
   $sql="insert into invoices (`".implode("`,`",array_keys($hope))."`)values('".implode("','",$hope)."')";

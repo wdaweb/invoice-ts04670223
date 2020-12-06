@@ -84,6 +84,7 @@ $rows = $pdo->query($sql)->fetchAll();
 <form class="d-flex" action="admin.php" method="get">
     <input type="hidden" name="do" value="invoice_list_admin">
     <input type="hidden" name="pd" value="<?= $period ?>">
+    
     <div class="btn-group" role="group" aria-label="Basic example">
         <a class="btn btn-light" href="?do=invoice_list_admin&pd=<?= $period; ?>&i=<?= $pageNow - 1; ?>"><i class="fas fa-angle-left"></i></a>
         <select class="border-0 btn btn-light form-control" name="i" onchange="submit()">
